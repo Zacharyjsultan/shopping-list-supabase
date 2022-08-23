@@ -4,7 +4,7 @@ const SUPABASE_KEY = '';
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 /* Auth related functions */
-
+////////////////////
 export function getUser() {
     return client.auth.user();
 }
