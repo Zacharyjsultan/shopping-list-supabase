@@ -24,3 +24,27 @@ Additional considerations:
     -   What needs to live in a persistence layer?
 -   Is there some state we need to initialize?
 -   Ask: should any of this work be abstracted into functions? (i.e., is the work complicated? can it be reused?)
+
+
+CREATE: 
+
+user should be able to add items to their shopping list - to supabase 
+
+READ: 
+send from supa back to dom to see list 
+
+UPDATE:
+mark items as bought like last assignment 
+
+Delete:
+
+delete all of the items
+
+
+
+
+
+SET AUTHENTICATION FOR RLS - auth see own / auth update self thro user_id
+
+
+START WITH HTML AND SETTING UP FETCH FROM SUPABASE

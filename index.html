@@ -13,13 +13,13 @@
         href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Titillium+Web:wght@200;400;600&display=swap">
     <link rel="stylesheet" href="styles/reset.css" />
     <link rel="stylesheet" href="styles/global.css" />
-    <title>Supabase Web App</title>
+    <title>Grocery List</title>
 </head>
 
 <body>
     <header class="page-header">
         <img class="logo" src="/assets/html_css_js.png">
-        <p class="title">Supabase Web App</p>
+        <p class="title">Inflation Grocery List</p>
         <nav>
             <a id="sign-out-link" href="auth">Sign Out</a>
         </nav>
@@ -27,9 +27,29 @@
 
     <main>
 
+        <form action="submit" id="grocery-form">
+
+            <h1>add grocery item</h1>
+
+            <label for="grocery-item">
+                <input required name="grocery-item" type="text">
+            </label>
+
+            <button>Add Grocery to List</button>
+
+        </form>
+
+        <div class="groceries-container">
+            <h1>Grocery List</h1>
+            <ul class="grocery-list">
+                <!--    container of list       -->
+            </ul>
+            <button class="delete">delete grocery list</button>
+        </div>
+
     </main>
 
-    <footer>&copy;2022 Alchemy Software Developer</footer>
+    <footer>&copy;3092 Alchemie Software Guy</footer>
 
     <script type="module" src="app.js"></script>
 </body>
