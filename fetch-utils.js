@@ -1,10 +1,10 @@
-const SUPABASE_URL = '';
-const SUPABASE_KEY = '';
+const SUPABASE_URL = 'https://kmrigloojytuutvfiyoo.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImttcmlnbG9vanl0dXV0dmZpeW9vIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjEyNzgzOTIsImV4cCI6MTk3Njg1NDM5Mn0.V7WVG6IsFTwX6sjiIWsZRYPdaZea2KOW6z5KoTuitxg';
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 /* Auth related functions */
-
+////////////////////
 export function getUser() {
     return client.auth.user();
 }
@@ -43,3 +43,31 @@ export async function signOutUser() {
 }
 
 /* Data functions */
+/// error response 
+function checkError({ data, error }) {
+    return error ? console.error(error) : data;
+}
+/// add item from form
+export async function addGrocery(grocery) {
+    return await client.from('groceries').insert(grocery).single();
+    
+}
+
+// get items for list
+export async function getGroceries() {
+    return await client.from('groceries').select('*');
+}
+
+// cross off if completed
+export async function crossOffList(id) {
+    const response = await client.from('groceries').update({ complete: true }).match({ user_id: client.auth.user().id, id:id });
+
+    return checkError(response);
+}
+// delete grocery item
+
+export async function deleteGroceries() {
+    const response = await client.from('groceries').delete().match({ user_id: getUser().id });
+
+    return checkError(response);
+}
